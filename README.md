@@ -1,16 +1,46 @@
-# React + Vite
+# React TanStack Query Implementation 🔄⚡
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A focused React application built with [Vite](https://vitejs.dev/) designed to demonstrate advanced server state management using **TanStack Query** (formerly React Query). This project moves away from traditional `useEffect` data fetching to provide a highly optimized, cached, and synchronized data experience.
 
-Currently, two official plugins are available:
+## 🌟 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Managing asynchronous data in React can be complex when handling loading states, caching, and synchronizing UI with the server. This repository serves as a practical implementation of TanStack Query, showcasing how to easily fetch product lists and handle data mutations (adding new products) while keeping the cache perfectly in sync.
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **📦 Product Fetching (`ProductList.jsx`):** 
+    *   Utilizes `useQuery` to fetch data from an API, handle loading/error states cleanly, and cache the results for instant subsequent navigations.
+*   **➕ Data Mutations (`AddProduct.jsx`):** 
+    *   Implements `useMutation` to send POST requests.
+    *   Showcases **Query Invalidation** to automatically trigger a background refetch of the product list upon a successful submission.
+*   **🛣️ Client-Side Routing (`router.jsx`):** 
+    *   Clean navigation between the product list and creation forms using React Router.
+*   **🔌 API Abstraction (`api.js`):** 
+    *   Centralized Axios/Fetch logic to keep React components clean and focused strictly on the UI.
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+TanStack_Imp/
+├── node_modules/
+├── public/
+├── src/
+│   ├── api/
+│   │   └── api.js
+│   ├── assets/
+│   ├── pages/
+│   │   ├── AddProduct.jsx
+│   │   └── ProductList.jsx
+│   ├── routes/
+│   │   └── router.jsx
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
